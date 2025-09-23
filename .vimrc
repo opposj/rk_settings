@@ -27,4 +27,4 @@ let &t_EI = "\<Esc>[2 q"
 
 packadd! jedi-vim
 
-nnoremap <leader>bda :%bd\|e#\|bd#<CR>
+noremap <leader>bda :w<CR>:%bd!\|e#\|bd!#<CR>
