@@ -1,6 +1,5 @@
+" Commands from https://github.com/nir9/welcome/blob/master/.vimrc
 set number
-set showcmd
-set t_Co=256
 color desert
 syntax on
 
@@ -20,6 +19,12 @@ set smartcase
 set ruler
 set gp=git\ grep\ -n
 set backupcopy=yes
+
+" My commands
+set shell=bash
+set foldmethod=syntax
+set showcmd
+set t_Co=256
 
 let &t_SI = "\<Esc>[6 q"
 let &t_SR = "\<Esc>[4 q"
