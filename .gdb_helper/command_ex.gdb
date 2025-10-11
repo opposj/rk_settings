@@ -21,13 +21,13 @@ define cui
   	
 	call $_continue_until_interest($_pattern) 
 	
-	if $_ori_logging_enabled == "on"
+	if $_streq($_ori_logging_enabled, "on")
 		set logging enabled on
 	else
 		set logging enabled off
 	end
 
-	if $_ori_logging_redirect == "on"
+	if $_streq($_ori_logging_redirect, "on") 
 		set logging redirect on 
 	else
 		set logging redirect off

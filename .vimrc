@@ -9,7 +9,7 @@ set shiftwidth=4
 
 set wildmenu
 set wildoptions=pum
-set wildignore=*.exe,*.dll,*.pdb
+set wildignore=*.exe,*.dll,*.pdb,*.swp,*.bak,*.pyc,*.class,*.jar,*.gif,*.png,*.jpg
 set hidden
 
 set cursorline
@@ -17,19 +17,36 @@ set is
 set ignorecase
 set smartcase
 set ruler
-set gp=git\ grep\ -n
 set backupcopy=yes
 
 " My commands
 set shell=bash
-set foldmethod=syntax
 set showcmd
 set t_Co=256
+set path^=/usr/include/x86_64-linux-gnu
+
+let s:gp = "rg --vimgrep"
+let s:file_gp = "rg --files -g"
 
 let &t_SI = "\<Esc>[6 q"
 let &t_SR = "\<Esc>[4 q"
 let &t_EI = "\<Esc>[2 q"
 
 packadd! jedi-vim
+let g:jedi#popup_on_dot = 0
+let g:jedi#show_call_signatures = "0"
 
-noremap <leader>bda :w<CR>:%bd!\|e#\|bd!#<CR>
+function! s:grep_helper(args) abort
+	let args_list = split(a:args, "\\s\\+")
+	let pattern = args_list[0]
+	let search_paths = len(args_list) == 1 ? join(filter(split(&path, ","), "!empty(v:val)"), " ") : join(args_list[1:], " ")
+  return pattern . " " . search_paths
+endfunction
+
+command! -nargs=+ -complete=file_in_path Grep cgetexpr system(s:gp . " " . s:grep_helper(<q-args>)) | copen
+command! -nargs=+ -complete=file_in_path Find cgetexpr system(s:file_gp . " " . s:grep_helper(<q-args>)) | copen
+command! -nargs=1 Pty execute "<mods> term socat -,rawer,opost=1,onlcr=1 /dev/pts/<args>"
+
+nnoremap <leader>gp :<C-u>Grep <C-R><C-W><CR> 
+nnoremap <leader>bda :<C-u>w<CR>:<C-u>%bd!\|e#\|bd!#<CR>
+nnoremap <expr> <leader>o &buftype == "quickfix" ? "^3ly$:\<C-u>new \<C-R>0\<CR>" : ""

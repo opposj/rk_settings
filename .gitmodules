@@ -1,3 +1,6 @@
 [submodule ".vim/pack/vendor/opt/jedi-vim"]
 	path = .vim/pack/vendor/opt/jedi-vim
 	url = https://github.com/davidhalter/jedi-vim.git
+[submodule "pdbp"]
+	path = pdbp
+	url = https://github.com/opposj/pdbp
