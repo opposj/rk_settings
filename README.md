@@ -6,7 +6,7 @@ Settings RKWS is using.
 3. A modified pdbp debuger.
 
 *How to use:*
-1. git clone --recursive --depth 1 https://github.com/opposj/rk_settings.git
+1. git clone --recursive --shallow-submodules --depth 1 https://github.com/opposj/rk_settings.git
 2. mv rk_settings/.vim ~/
 3. mv rk_settings/.vimrc ~/
 4. mv rk_settings/.gdb_helper ~/
