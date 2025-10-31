@@ -20,6 +20,7 @@ set ruler
 set backupcopy=yes
 
 " My commands
+set encoding=utf-8
 set shell=bash
 set showcmd
 set t_Co=256
