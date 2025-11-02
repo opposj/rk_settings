@@ -48,7 +48,7 @@ endfunction
 
 command! -nargs=+ -complete=file_in_path Grep cgetexpr system(s:gp .. " " .. s:grep_helper(<q-args>)) | copen
 command! -nargs=+ -complete=file_in_path Find cgetexpr system(s:file_gp .. " " .. s:grep_helper(<q-args>)) | copen
-command! -nargs=1 Pty execute "<mods> term ++close socat -,rawer,opost=1,onlcr=1 /dev/pts/<args>"
+command! -nargs=1 Pty execute "<mods> term ++close socat -,rawer,opost=1,onlcr=1 /dev/pts/<args>" | call term_sendkeys("", term_gettty("") .. "\n")
 
 nnoremap <leader>p `[v`]
 nnoremap <leader>gp :<C-u>Grep <C-r><C-w><CR> 
