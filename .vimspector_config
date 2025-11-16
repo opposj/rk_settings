@@ -1,0 +1,26 @@
+{
+	"configurations": {
+		"_python_default_": {
+			"adapter": "debugpy",
+			"filetypes": [ "python" ],
+			"default": true,
+			"configuration": {
+				"name": "_python_default_",
+				"type": "python",
+				"request": "launch",
+				"program": "${file}",
+				"stopOnEntry": false,
+				"cwd": "${cwd}",
+				"justMyCode": false,
+				"console": "externalTerminal"
+			},
+			"breakpoints": {
+				"exception": {
+					"raised": "N",
+					"uncaught": "Y",
+					"userUnhandled": "N"
+				}
+			}
+		}
+	}
+}

@@ -11,5 +11,8 @@ Settings RKWS is using.
 3. mv rk_settings/.vimrc ~/
 4. mv rk_settings/.gdb_helper ~/
 5. cat ~/.gdb_helper/gdb.init >> ~/.gdbinit
-6. pip install rk_settings/pdbp  # libreadline.so is required.
-7. rm -rf rk_settings
+6. python ~/.vim/pack/vendor/opt/vimspector/install_gadget.py --enable-python
+7. mv ~/.vimspector_config ~/.vim/pack/vendor/opt/vimspector/configurations/linux/_all/vimspector.json
+8. vim -c "helptags ~/.vim/pack/vendor/opt/jedi-vim/doc" -c "q"
+9. vim -c "helptags ~/.vim/pack/vendor/opt/vimspector/doc" -c "q"
+10. rm -rf rk_settings
